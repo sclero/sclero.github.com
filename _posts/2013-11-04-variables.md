@@ -151,6 +151,11 @@ Measurements used (but not sure what either are)
 - UE
 - LE
 
+Additional indicator variables that could be used:
+
+- History of myositis (muscle?)
+- Articular involvement (muscle?)
+
 #### Questions
 
 - What is UE/LE?
@@ -189,32 +194,86 @@ The levels are:
 
 There are no raw measurements, the classification seems to be on observational variables.
 
+Some additional measurements that should be useful in assessing vasculature:
+
+- Current smoking information (is current smoker? number of cigs per day?) (affects vasculature?)
+- Telangiectasia
+- Calcinosis
+- Missing digits
+
 #### Questions
 
 - What variable is RP indicator stored in?
 - Are digital pitting scars, tip ulceration, and gangrene recorded explicitly in any variables?
 - Are there any low-level variables related to these conditions?
 
-## Variables that still need to be accounted for
+## Baseline variables
 
 - Scleroderma onset/date information
-- Demographic information
+  - History of RP (0,1), 9 is NA
+  - Date onset RP
+  - Date first symptom
+  - Date diagnosis
+  
+- Demographic variables
+  - Sex
+  - Race
+
 - Smoking history
+  - Status (0=never, 1=former, 2=current)
+  
 - Risk factors (family history, exposures, pulmonary hypertension)
+  - Twin?
+  - Family history of CTD?
+  - Family history Ssc?
+  - Family history of RP?
+  - Family history of SLE?
+  - Family history of Polymyositis?
+  - Family history of Sjogren's Syndrome?
+  - Family history of Rheumatoid Arth?
+
+- Serological variables (is this the best place for these variables?)
+- Event history (what is the best way to use this?)
+
+### Questions
+
+- What is the best way to incorporate family history?
+- Do serological variables make sense as baseline variables (don't change over time)?
+- What are important events to include from event history?
+- Are environmental exposures important indicators of decline in any particular organ systems?
+
+## Medications
+
 - Medications
+
+### Questions
+
+- Should we be clustering medications into function rather than individual identities?
+
+## Co-morbidities
+
+- Co-morbid factors
+
+### Questions
+
+- Are co-morbidities linked to certain organ systems? Which ones?
+- How do clinicians use co-morbidities when assessing trajectories? Does it explain away declining health? I.e. does it make scleroderma-related causes for decline less likely if there are co-morbidities?
+
+## Variables that still need to be accounted for
+
 - Three criteria types (ACR, CREST, Minor)
 - Scleroderma subtype
-- Missing digits
-- Current smoking information (is current smoker? number of cigs per day?) (affects vasculature?)
-- Co-morbid factors
-- Telangiectasia (skin?)
-- Calcinosis (skin?)
 - Pulmonary hypertension (is this the same as what is recorded in risk factors? Or is it based on current clinical measurements?)
-- History of myositis (muscle?)
-- Articular involvement (muscle?)
 - Endocrine (is this just another set of co-morbidities? does it influence interpretation of sero?)
 - Sicca complex
 - Health assessment questionaire (is this at all useful?)
 - BAL data (there are few patients with this info, is it useful?)
-- Serological data (where should this fit? This seems related to endocrine, how to bring into model?)
-- Event history (what is the best way to use this?)
+
+### Questions
+
+- What is BAL recording?
+- What does endocrine binary variable tell us?
+- Why is sicca complex important?
+- Can HAQ data be used at all? It seems too far removed from the true measurements we're interested in modeling.
+- How are the criteria used? Is this primary a summary for clinicians?
+- How is the scleroderma subtype used?
