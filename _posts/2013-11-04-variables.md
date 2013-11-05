@@ -46,7 +46,9 @@ The following measurements are used to assess this system:
 #### Questions
 
 - What is Rales?
-- What is CXR Fibrosis
+  - Rales is a lung sound. Clinicians can assess lung function by using a stethoscope and listening for certain classes of sounds (auscultation). Rales are clicking/bubbling/rattling in the lungs.
+- What is CXR Fibrosis?
+  - Chest x-ray used to determine whether fibrosis has developed in the lungs.
 - What indicates moderate-severe PAH? Is it just RVSP, or is there more to the diagnosis?
   - Pulmonary hypertension variable in ECHO data encodes the severity of PAH using RVSP, so this has the levels.
 - Are any other measurements in the PFT data useful? Or should we just be using FVC/DLCO (helium tests in particular)
