@@ -1,0 +1,354 @@
+---
+layout: post
+title: Baseline Prediction Results
+---
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+               "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>results</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<meta name="title" content="results"/>
+<meta name="generator" content="Org-mode"/>
+<meta name="generated" content="2013-11-22T12:47-0500"/>
+<meta name="author" content="Peter Schulam"/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  html { font-family: Times, serif; font-size: 12pt; }
+  .title  { text-align: center; }
+  .todo   { color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #add8e6; font-weight:normal }
+  .target { }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  {margin-left:auto; margin-right:0px;  text-align:right;}
+  .left   {margin-left:0px;  margin-right:auto; text-align:left;}
+  .center {margin-left:auto; margin-right:auto; text-align:center;}
+  p.verse { margin-left: 3% }
+  pre {
+	border: 1pt solid #AEBDCC;
+	background-color: #F3F5F7;
+	padding: 5pt;
+	font-family: courier, monospace;
+        font-size: 90%;
+        overflow:auto;
+  }
+  table { border-collapse: collapse; }
+  td, th { vertical-align: top;  }
+  th.right  { text-align:center;  }
+  th.left   { text-align:center;   }
+  th.center { text-align:center; }
+  td.right  { text-align:right;  }
+  td.left   { text-align:left;   }
+  td.center { text-align:center; }
+  dt { font-weight: bold; }
+  div.figure { padding: 0.5em; }
+  div.figure p { text-align: center; }
+  div.inlinetask {
+    padding:10px;
+    border:2px solid gray;
+    margin:10px;
+    background: #ffffcc;
+  }
+  textarea { overflow-x: auto; }
+  .linenr { font-size:smaller }
+  .code-highlighted {background-color:#ffff00;}
+  .org-info-js_info-navigation { border-style:none; }
+  #org-info-js_console-label { font-size:10px; font-weight:bold;
+                               white-space:nowrap; }
+  .org-info-js_search-highlight {background-color:#ffff00; color:#000000;
+                                 font-weight:bold; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+
+</head>
+<body>
+
+<div id="preamble">
+
+</div>
+
+<div id="content">
+<h1 class="title">results</h1>
+
+
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1 At-risk Prediction</a>
+<ul>
+<li><a href="#sec-1-1">1.1 AUC Results for Percent FVC</a>
+<ul>
+<li><a href="#sec-1-1-1">1.1.1 Full FVC Model (1 year after baseline)</a></li>
+</ul>
+</li>
+<li><a href="#sec-1-2">1.2 AUC Results for RVSP</a>
+<ul>
+<li><a href="#sec-1-2-1">1.2.1 Full RVSP Model (1 year after baseline)</a></li>
+</ul></li>
+</ul>
+</li>
+<li><a href="#sec-2">2 Skin Score Trajectories</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> At-risk Prediction</h2>
+<div class="outline-text-2" id="text-1">
+
+
+<p>
+Predict whether patients will become sick with respect to a particular score. Coefficient sections gives influence on log odds of becoming sick.
+</p>
+<p>
+"Years after baseline" indicates the number of years between the last baseline measurements and the measurements used to determine the worst measurement for a variable. For example, if we use all measurements within the first year to compute a baseline value for RVSP, then for years after baseline equal to 1, we predict whether the patient's measurements from 2 years forward are critical. All times are computed with respect to the date of the patient's first visit.
+</p>
+<p>
+Null AUC is a model fit using only baseline measurement of the variable we are trying to predict (e.g. "mean.pfvc" when predicting whether the patient's FVC will decline). The full model includes all variables shown in the detailed model output.
+</p>
+
+</div>
+
+<div id="outline-container-1-1" class="outline-3">
+<h3 id="sec-1-1"><span class="section-number-3">1.1</span> AUC Results for Percent FVC</h3>
+<div class="outline-text-3" id="text-1-1">
+
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<colgroup><col class="right" /><col class="right" /><col class="right" /><col class="right" /><col class="right" />
+</colgroup>
+<thead>
+<tr><th scope="col" class="right">Years after baseline</th><th scope="col" class="right">Num. Patients</th><th scope="col" class="right">P. Sick</th><th scope="col" class="right">Null AUC</th><th scope="col" class="right">Full AUC</th></tr>
+</thead>
+<tbody>
+<tr><td class="right">0</td><td class="right">383</td><td class="right">30%</td><td class="right">0.81</td><td class="right">0.82</td></tr>
+<tr><td class="right">1</td><td class="right">317</td><td class="right">29%</td><td class="right">0.80</td><td class="right">0.81</td></tr>
+<tr><td class="right">2</td><td class="right">265</td><td class="right">32%</td><td class="right">0.81</td><td class="right">0.82</td></tr>
+<tr><td class="right">3</td><td class="right">205</td><td class="right">36%</td><td class="right">0.82</td><td class="right">0.82</td></tr>
+</tbody>
+</table>
+
+
+
+</div>
+
+<div id="outline-container-1-1-1" class="outline-4">
+<h4 id="sec-1-1-1"><span class="section-number-4">1.1.1</span> Full FVC Model (1 year after baseline)</h4>
+<div class="outline-text-4" id="text-1-1-1">
+
+
+
+
+
+<pre class="example">Call:
+glm(formula = pfvc.decline ~ afr.am + mean.gen.score + mean.skin.score +
+    mean.gi.score + mean.pfvc + mean.pdlco + has.aca + has.scl.70,
+    family = "binomial", data = dat)
+
+Deviance Residuals:
+    Min       1Q   Median       3Q      Max
+-2.1583  -0.7122  -0.3481   0.7287   2.4992
+
+Coefficients:
+                 Estimate Std. Error z value Pr(&gt;|z|)
+(Intercept)     10.046592   1.699322   5.912 3.38e-09 ***
+afr.am1          0.222166   0.545270   0.407   0.6837
+mean.gen.score   0.213160   0.240583   0.886   0.3756
+mean.skin.score  0.031658   0.015301   2.069   0.0385 *
+mean.gi.score   -0.106630   0.237558  -0.449   0.6535
+mean.pfvc       -0.130384   0.020193  -6.457 1.07e-10 ***
+mean.pdlco      -0.006511   0.009183  -0.709   0.4783
+has.aca1         0.289218   0.413094   0.700   0.4838
+has.scl.701      0.838942   0.356275   2.355   0.0185 *
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 381.89  on 316  degrees of freedom
+Residual deviance: 282.82  on 308  degrees of freedom
+AIC: 300.82
+
+Number of Fisher Scoring iterations: 5
+</pre>
+
+
+<p>
+Patients with high probability according to the model, but who do not become sick are shown below.
+</p>
+<p>
+<img src="./fig/pfvc-false-positives.png" width="600" alt="./fig/pfvc-false-positives.png" />
+</p>
+<p>
+Patients with low probability according to the model, but who do become sick are shown below.
+</p>
+<p>
+<img src="./fig/pfvc-false-negatives.png" width="600" alt="./fig/pfvc-false-negatives.png" />
+</p>
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-1-2" class="outline-3">
+<h3 id="sec-1-2"><span class="section-number-3">1.2</span> AUC Results for RVSP</h3>
+<div class="outline-text-3" id="text-1-2">
+
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<colgroup><col class="right" /><col class="right" /><col class="right" /><col class="right" /><col class="right" />
+</colgroup>
+<thead>
+<tr><th scope="col" class="right">Years after baseline</th><th scope="col" class="right">Num. Patients</th><th scope="col" class="right">P. Sick</th><th scope="col" class="right">Null AUC</th><th scope="col" class="right">Full AUC</th></tr>
+</thead>
+<tbody>
+<tr><td class="right">0</td><td class="right">449</td><td class="right">35%</td><td class="right">0.67</td><td class="right">0.71</td></tr>
+<tr><td class="right">1</td><td class="right">373</td><td class="right">35%</td><td class="right">0.67</td><td class="right">0.70</td></tr>
+<tr><td class="right">2</td><td class="right">306</td><td class="right">37%</td><td class="right">0.66</td><td class="right">0.68</td></tr>
+<tr><td class="right">3</td><td class="right">250</td><td class="right">39%</td><td class="right">0.62</td><td class="right">0.65</td></tr>
+</tbody>
+</table>
+
+
+
+</div>
+
+<div id="outline-container-1-2-1" class="outline-4">
+<h4 id="sec-1-2-1"><span class="section-number-4">1.2.1</span> Full RVSP Model (1 year after baseline)</h4>
+<div class="outline-text-4" id="text-1-2-1">
+
+
+
+
+
+<pre class="example">Call:
+glm(formula = rvsp.decline ~ sex + afr.am + mean.gen.score +
+    mean.skin.score + mean.gi.score + mean.pfvc + mean.pdlco +
+    has.aca + has.scl.70 + mean.rvsp, family = "binomial", data = dat)
+
+Deviance Residuals:
+    Min       1Q   Median       3Q      Max
+-1.9191  -0.8836  -0.5782   1.0819   2.1895
+
+Coefficients:
+                 Estimate Std. Error z value Pr(&gt;|z|)
+(Intercept)     -2.342441   1.160027  -2.019  0.04346 *
+sex1            -0.381038   0.361457  -1.054  0.29180
+afr.am1          0.494843   0.351252   1.409  0.15889
+mean.gen.score   0.091104   0.181679   0.501  0.61605
+mean.skin.score  0.017498   0.012018   1.456  0.14540
+mean.gi.score   -0.245615   0.195123  -1.259  0.20811
+mean.pfvc       -0.005522   0.010006  -0.552  0.58107
+mean.pdlco      -0.020305   0.007823  -2.596  0.00944 **
+has.aca1         0.785619   0.321347   2.445  0.01449 *
+has.scl.701      0.141557   0.289963   0.488  0.62542
+mean.rvsp        0.123608   0.024525   5.040 4.65e-07 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 483.55  on 372  degrees of freedom
+Residual deviance: 420.70  on 362  degrees of freedom
+AIC: 442.7
+
+Number of Fisher Scoring iterations: 4
+</pre>
+
+
+<p>
+Patients with high probability according to the model, but who do not become sick are shown below.
+</p>
+<p>
+<img src="./fig/rvsp-false-positives.png" width="600" alt="./fig/rvsp-false-positives.png" />
+</p>
+<p>
+Patients with low probability according to the model, but who do become sick are shown below.
+</p>
+<p>
+<img src="./fig/rvsp-false-negatives.png" width="600" alt="./fig/rvsp-false-negatives.png" />
+</p>
+</div>
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> Skin Score Trajectories</h2>
+<div class="outline-text-2" id="text-2">
+
+
+<p>
+For each, patient we use cross validation to estimate the penalization parameter in a lasso regression of skin score on years since diagnosis. Below, is a histogram over intercepts for all patients whose trajectories were estimated to be constant. The second plot shows trajectories for patients with non-zero linear and quadratic coefficients.
+</p>
+<p>
+<img src="./fig/skin-constants.png" width="600" alt="./fig/skin-constants.png" />
+</p>
+<p>
+<img src="./fig/skin-quadratics.png" width="600" alt="./fig/skin-quadratics.png" />
+</p></div>
+</div>
+</div>
+
+<div id="postamble">
+<p class="date">Date: 2013-11-22T12:47-0500</p>
+<p class="author">Author: Peter Schulam</p>
+<p class="creator"><a href="http://orgmode.org">Org</a> version 7.9.3f with <a href="http://www.gnu.org/software/emacs/">Emacs</a> version 24</p>
+<a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>
+
+</div>
+</body>
+</html>
